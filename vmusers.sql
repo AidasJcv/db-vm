@@ -15,8 +15,8 @@ CREATE TABLE IF NOT EXISTS userdata (
 CREATE TABLE IF NOT EXISTS vminfo (
     vm_id INT,
     owner_id INT,
-    cpu VARCHAR(255),
-    ram VARCHAR(255),
+    cpu FLOAT,
+    ram INT,
     connection_info VARCHAR(255)
 );
 
