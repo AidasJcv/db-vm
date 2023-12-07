@@ -8,7 +8,16 @@ USE users;
 CREATE TABLE IF NOT EXISTS userdata (
     user_id INT,
     username VARCHAR(255),
-	password VARCHAR(255)
+    password VARCHAR(255)
+);
+
+-- Create another table to store VM info (ssh conn string, cpu/ram amount, the userid of the vm owner)
+CREATE TABLE IF NOT EXISTS vminfo (
+    vm_id INT NOT NULL AUTO_INCREMENT,
+    owner_id INT NOT NULL,
+    cpu VARCHAR(255),
+    ram VARCHAR(255),
+    connection_info VARCHAR(255)
 );
 
 -- Create a user for the database admin
@@ -21,5 +30,7 @@ GRANT ALL PRIVILEGES ON users.* TO 'admin'@'%';
 FLUSH PRIVILEGES;
 
 ALTER TABLE `userdata` ADD PRIMARY KEY (`user_id`), ADD UNIQUE KEY `username` (`username`), MODIFY `user_id` INT NOT NULL AUTO_INCREMENT;
+
+ALTER TABLE `vminfo` ADD PRIMARY KEY (`vm_id`), MODIFY `vm_id` INT NOT NULL AUTO_INCREMENT;
 
 INSERT INTO `userdata` (`user_id`, `username`, `password`) VALUES (1, 'admin', 'admin');
