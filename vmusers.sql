@@ -13,8 +13,8 @@ CREATE TABLE IF NOT EXISTS userdata (
 
 -- Create another table to store VM info (ssh conn string, cpu/ram amount, the userid of the vm owner)
 CREATE TABLE IF NOT EXISTS vminfo (
-    vm_id INT NOT NULL AUTO_INCREMENT,
-    owner_id INT NOT NULL,
+    vm_id INT,
+    owner_id INT,
     cpu VARCHAR(255),
     ram VARCHAR(255),
     connection_info VARCHAR(255)
